@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if !(docker ps &> /dev/null;)
+then
+  echo "Docker is not running"
+  echo "Starting docker..."
+  open -a Docker
+  sleep 1
+  while !(docker ps &> /dev/null;)
+  do
+    echo "Waiting for docker to start..."
+    sleep 1
+  done
+else
+  echo "Docker is running"
+fi

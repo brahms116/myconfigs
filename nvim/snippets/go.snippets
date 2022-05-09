@@ -1,0 +1,10 @@
+snippet po "print object"
+	fmt.Printf("%+v\n",${1})
+
+snippet pjo "print json object"
+	jbb, err := json.MarshalIndent(${1}, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(jbb))
+
