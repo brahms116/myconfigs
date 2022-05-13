@@ -10,7 +10,13 @@ packer.startup(function()
  -- }
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+  use 'kassio/neoterm'
 end)
+
+
+-- terminal
+
+vim.g.neoterm_default_mod="belowright"
 
 
 -- coc
