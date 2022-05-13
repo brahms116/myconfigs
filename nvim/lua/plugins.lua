@@ -11,6 +11,7 @@ packer.startup(function()
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'kassio/neoterm'
+  use {'glepnir/galaxyline.nvim', branch = 'main', config = function() require'galaxy' end }
 end)
 
 

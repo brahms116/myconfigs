@@ -75,6 +75,12 @@ _G.packer_plugins = {
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  ["galaxyline.nvim"] = {
+    config = { "\27LuaQ\0\1\4\b\4\b\0+\0\0\0\0\0\0\0@/home/ubuntu/.config/nvim/lua/plugins.lua\0\14\0\0\0\14\0\0\0\0\0\0\2\4\0\0\0\5\0\0\0A@\0\0\28@\0\1\30\0€\0\2\0\0\0\4\b\0\0\0\0\0\0\0require\0\4\a\0\0\0\0\0\0\0galaxy\0\0\0\0\0\4\0\0\0\14\0\0\0\14\0\0\0\14\0\0\0\14\0\0\0\0\0\0\0\0\0\0\0" },
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
+    url = "https://github.com/glepnir/galaxyline.nvim"
+  },
   neoterm = {
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/neoterm",
@@ -93,6 +99,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+try_loadstring("\27LuaQ\0\1\4\b\4\b\0+\0\0\0\0\0\0\0@/home/ubuntu/.config/nvim/lua/plugins.lua\0\14\0\0\0\14\0\0\0\0\0\0\2\4\0\0\0\5\0\0\0A@\0\0\28@\0\1\30\0€\0\2\0\0\0\4\b\0\0\0\0\0\0\0require\0\4\a\0\0\0\0\0\0\0galaxy\0\0\0\0\0\4\0\0\0\14\0\0\0\14\0\0\0\14\0\0\0\14\0\0\0\0\0\0\0\0\0\0\0", "config", "galaxyline.nvim")
+time([[Config for galaxyline.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
