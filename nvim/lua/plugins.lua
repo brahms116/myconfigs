@@ -12,6 +12,7 @@ packer.startup(function()
   use 'junegunn/fzf.vim'
   use 'kassio/neoterm'
   use {'glepnir/galaxyline.nvim', branch = 'main', config = function() require'galaxy' end }
+  use 'tpope/vim-commentary'
 end)
 
 
