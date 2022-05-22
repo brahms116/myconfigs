@@ -4,27 +4,24 @@ packer.startup(function()
   use "wbthomason/packer.nvim"
   use "EdenEast/nightfox.nvim"
   use {'neoclide/coc.nvim', branch="release"}
---  use {
---    'nvim-telescope/telescope.nvim',
- --   requires = { {'nvim-lua/plenary.nvim'} },
- -- }
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'kassio/neoterm'
-  use {'glepnir/galaxyline.nvim', branch = 'main', config = function() require'galaxy' end }
   use 'tpope/vim-commentary'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 end)
 
 
 -- terminal
-
 vim.g.neoterm_default_mod="belowright"
 
 
 -- coc
 vim.api.nvim_set_keymap("n","<leader>a","<Plug>(coc-codeaction)",{})
 vim.api.nvim_set_keymap("n","<leader>d","<Plug>(coc-definition)",{})
---map("n","<leader>f",":call CocActionAsync('format')<CR>")
 map("n","<C-h>",":call CocActionAsync('doHover')<CR>")
 
 
@@ -37,9 +34,9 @@ vim.cmd("colorscheme nightfox")
 map("n","<C-p>",":Files<CR>")
 
 
--- telescope
---map("n","<C-p>",":Telescope find_files<CR>")
---require('telescope').setup{  defaults = { file_ignore_patterns = { "node_modules" }} }
+-- status line
+require'lualine'.setup()
+
 
 
 

@@ -84,11 +84,10 @@ _G.packer_plugins = {
     path = "/home/david/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
-  ["galaxyline.nvim"] = {
-    config = { "\27LJ\2\2&\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\vgalaxy\frequire\0" },
+  ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
-    url = "https://github.com/glepnir/galaxyline.nvim"
+    path = "/home/david/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   neoterm = {
     loaded = true,
@@ -99,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/david/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/david/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -113,10 +117,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: galaxyline.nvim
-time([[Config for galaxyline.nvim]], true)
-try_loadstring("\27LJ\2\2&\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\vgalaxy\frequire\0", "config", "galaxyline.nvim")
-time([[Config for galaxyline.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

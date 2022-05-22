@@ -7,10 +7,6 @@ vim.g.mapleader = " "
 require('plugins')
 
 
-
-
-
-
 local o = vim.opt
 o.nu = true
 o.relativenumber = true
