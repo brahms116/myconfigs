@@ -7,7 +7,9 @@ packer.startup(function()
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'kassio/neoterm'
+  use 'savq/melange'
   use 'tpope/vim-commentary'
+  use 'nvim-treesitter/nvim-treesitter'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -27,7 +29,8 @@ map("n","<C-h>",":call CocActionAsync('doHover')<CR>")
 
 
 -- Color Scheme
-vim.cmd("colorscheme nightfox")
+vim.opt.termguicolors = true
+vim.cmd("colorscheme melange")
 
 
 -- fzf

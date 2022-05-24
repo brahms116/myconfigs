@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/david/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  melange = {
+    loaded = true,
+    path = "/home/david/.local/share/nvim/site/pack/packer/start/melange",
+    url = "https://github.com/savq/melange"
+  },
   neoterm = {
     loaded = true,
     path = "/home/david/.local/share/nvim/site/pack/packer/start/neoterm",
@@ -98,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/david/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/david/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
