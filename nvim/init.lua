@@ -21,6 +21,7 @@ o.hlsearch=true
 o.scrolloff = 16
 
 vim.cmd('set noswapfile')
+vim.cmd('hi normal guibg=NONE ctermbg=NONE')
 
 
 map("i","jj","<ESC>")
