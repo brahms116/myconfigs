@@ -50,7 +50,7 @@ function handle_tab()
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("\<TAB>",true,true,true),"n")
   end
 end
-vim.keymap.set('i','<TAB>',handle_tab, {slient=true})
+vim.keymap.set('i','<TAB>',handle_tab)
 
 -- Color Scheme
 vim.opt.termguicolors = true
