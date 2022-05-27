@@ -5,6 +5,7 @@ end
 vim.g.mapleader = " "
 
 require('plugins')
+require('global_map')
 
 
 local o = vim.opt
@@ -26,13 +27,5 @@ vim.cmd('set clipboard+=unnamedplus')
 vim.cmd('set noshowmode')
 
 
-map("i","jj","<ESC>")
-map("i","<ESC>","<NOP>")
-map("n","<leader>v",":vs<CR>")
-map("n","<leader>j",":bp<CR>")
-map("n","<leader>k",":bn<CR>")
-map("n","<leader>q",":bd<CR>")
-map("n","<leader>l","<C-w>l<CR>")
-map("n","<leader>h","<C-w>h<CR>")
 
 
