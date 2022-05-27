@@ -15,7 +15,7 @@ function is_backspace_clear()
     return true
   end
   local char = string.sub(vim.api.nvim_get_current_line(),col,col)
-  if string.match(char,"%s") then
+  if string.match(char,'%s') then
      return true  
    else
      return false
@@ -24,12 +24,19 @@ end
 
 function handle_tab()
   if vim.fn['pumvisible']() and not is_backspace_clear() then
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("\<C-n>",true,true,true))
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('\<C-n>',true,true,true))
   else
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("\<TAB>",true,true,true),"n")
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('\<TAB>',true,true,true),'n')
   end
 end
+
 vim.keymap.set('i','<TAB>',handle_tab)
+vim.keymap.set('i','<C-j>','<C-y>')
+vim.keymap.set('n','<leader>n',':cn<CR>')
+vim.keymap.set('n','<leader>p',':cp<CR>')
+vim.keymap.set('n','<leader>f',':grep ')
+vim.keymap.set('n','<leader>o',':copen<CR>')
+
 
 
 

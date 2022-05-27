@@ -50,6 +50,8 @@ vim.opt.termguicolors = true
 vim.cmd("colorscheme melange")
 
 -- fzf
+
+vim.opt.grepprg = "rg --follow --vimgrep --smart-case --no-heading"
 map("n","<C-p>",":Files<CR>")
 
 
