@@ -22,6 +22,7 @@ o.scrolloff = 16
 
 vim.cmd('set noswapfile')
 vim.cmd('hi normal guibg=NONE ctermbg=NONE')
+vim.cmd('set clipboard+=unnamedplus')
 
 
 map("i","jj","<ESC>")
