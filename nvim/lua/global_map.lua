@@ -24,9 +24,9 @@ end
 
 function handle_tab()
   if vim.fn['pumvisible']() and not is_backspace_clear() then
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('\<C-n>',true,true,true))
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<c-n>",true,true,true))
   else
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('\<TAB>',true,true,true),'n')
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<TAB>",true,true,true),'n')
   end
 end
 

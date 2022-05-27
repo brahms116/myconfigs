@@ -18,7 +18,6 @@ packer.startup(function()
 end)
 
 
-
 -- terminal
 vim.g.neoterm_default_mod="belowright"
 vim.g.neoterm_keep_term_open = false
