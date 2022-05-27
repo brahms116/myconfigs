@@ -1,3 +1,4 @@
+
 local packer = require('packer')
 
 packer.startup(function()
@@ -21,8 +22,22 @@ end)
 -- terminal
 vim.g.neoterm_default_mod="belowright"
 vim.g.neoterm_keep_term_open = false
-map("n","<C-t>",":T cd " .. vim.fn.expand('%:p:h').."<CR>")
+is_term_open = false
+
+local function toggleTerminal()
+  if is_term_open then
+    is_term_open = false
+    return vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":Tclose<CR>",true,true,true))
+  else
+    is_term_open = true
+    return vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":T cd " .. vim.fn.expand('%:p:h').."<CR>",true,true,true))
+  end
+end
+
+vim.keymap.set("n","<C-t>", toggleTerminal)
 map("n","<leader>t",":T ")
+
+ 
 
 -- coc
 vim.api.nvim_set_keymap("n","<leader>a","<Plug>(coc-codeaction)",{})

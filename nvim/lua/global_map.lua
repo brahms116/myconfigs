@@ -31,7 +31,7 @@ function handle_tab()
 end
 vim.keymap.set('i','<TAB>',handle_tab)
 
-map("i","<leader>y","<C-y>")
+
 
 
 
