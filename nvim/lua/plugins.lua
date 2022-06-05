@@ -44,6 +44,7 @@ vim.api.nvim_set_keymap("n","<leader>d","<Plug>(coc-definition)",{})
 vim.api.nvim_set_keymap("n","<leader>[","<Plug>(coc-diagnostic-prev)",{})
 vim.api.nvim_set_keymap("n","<leader>]","<Plug>(coc-diagnostic-next)",{})
 map("n","<C-h>",":call CocActionAsync('doHover')<CR>")
+map("n","<C-d>",":CocList diagnostic<CR>")
 
 
 -- Color Scheme
