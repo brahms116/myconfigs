@@ -41,6 +41,8 @@ map("n","<leader>t",":T ")
 -- coc
 vim.api.nvim_set_keymap("n","<leader>a","<Plug>(coc-codeaction)",{})
 vim.api.nvim_set_keymap("n","<leader>d","<Plug>(coc-definition)",{})
+vim.api.nvim_set_keymap("n","<leader>[","<Plug>(coc-diagnostic-prev)",{})
+vim.api.nvim_set_keymap("n","<leader>]","<Plug>(coc-diagnostic-next)",{})
 map("n","<C-h>",":call CocActionAsync('doHover')<CR>")
 
 
