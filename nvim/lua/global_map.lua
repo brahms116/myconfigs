@@ -30,13 +30,24 @@ function handle_tab()
   end
 end
 
+local is_quick_fix_open = false
+function handle_o()
+  if is_quick_fix_open then
+    is_quick_fix_open = false
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":cclose<CR>",true,true,true))
+  else 
+    is_quick_fix_open = true
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":copen<CR>",true,true,true))
+  end
+end
+
 vim.keymap.set('i','<TAB>',handle_tab)
 vim.keymap.set('i','<C-j>','<C-y>')
 vim.keymap.set('n','<leader>n',':cn<CR>')
 vim.keymap.set('n','<leader>p',':cp<CR>')
 vim.keymap.set('n','<leader>f',':grep ')
 vim.keymap.set('n','<leader>w',':w<CR>')
-vim.keymap.set('n','<leader>o',':copen<CR>')
+vim.keymap.set('n','<leader>o',handle_o)
 
 
 
