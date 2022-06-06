@@ -1,3 +1,6 @@
 [user]
 	email = 20544dk@gmail.com
 	name = David Kwong
+
+[init]
+  defaultBranch = main
