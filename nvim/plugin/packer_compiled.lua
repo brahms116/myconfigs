@@ -44,15 +44,6 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/david/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/david/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/david/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/david/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/david/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
-if not string.find(package.path, package_path_str, 1, true) then
-  package.path = package.path .. ';' .. package_path_str
-end
-
-if not string.find(package.cpath, install_cpath_pattern, 1, true) then
-  package.cpath = package.cpath .. ';' .. install_cpath_pattern
-end
 
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
@@ -71,67 +62,67 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   fzf = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/fzf",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf.vim"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   melange = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/melange",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/melange",
     url = "https://github.com/savq/melange"
   },
   neoterm = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/neoterm",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/neoterm",
     url = "https://github.com/kassio/neoterm"
   },
   ["nightfox.nvim"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/home/david/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   }
 }
