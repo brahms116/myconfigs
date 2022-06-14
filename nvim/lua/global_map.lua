@@ -46,7 +46,10 @@ vim.keymap.set('i','<C-j>','<C-y>')
 vim.keymap.set('n','<leader>n',':cn<CR>')
 vim.keymap.set('n','<leader>p',':cp<CR>')
 vim.keymap.set('n','<C-f>',':grep ')
-vim.keymap.set('n','<leader>w',':w<CR>')
+
+-- Save on format, should remove this if lsp is not configured
+vim.keymap.set('n','<leader>w','<cmd>lua vim.lsp.buf.format()<CR>:w<CR>')
+
 vim.keymap.set('n','<leader>o',handle_o)
 
 
