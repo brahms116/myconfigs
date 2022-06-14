@@ -45,7 +45,7 @@ vim.keymap.set('i','<TAB>',handle_tab)
 vim.keymap.set('i','<C-j>','<C-y>')
 vim.keymap.set('n','<leader>n',':cn<CR>')
 vim.keymap.set('n','<leader>p',':cp<CR>')
-vim.keymap.set('n','<leader>f',':grep ')
+vim.keymap.set('n','<C-f>',':grep ')
 vim.keymap.set('n','<leader>w',':w<CR>')
 vim.keymap.set('n','<leader>o',handle_o)
 

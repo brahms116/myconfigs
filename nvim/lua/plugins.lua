@@ -1,16 +1,17 @@
 
-local packer = require('packer')
-
-packer.startup(function()
+local use = require('packer').use
+require('packer').startup(function()
   use "wbthomason/packer.nvim"
   use "EdenEast/nightfox.nvim"
-  use {'neoclide/coc.nvim', branch="release"}
+  -- use {'neoclide/coc.nvim', branch="release"}
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'kassio/neoterm'
   use 'savq/melange'
+  use 'neovim/nvim-lspconfig'
   use 'tpope/vim-commentary'
   use 'nvim-treesitter/nvim-treesitter'
+  use {'jose-elias-alvarez/null-ls.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -60,8 +61,7 @@ map("n","<C-p>",":Files<CR>")
 -- status line
 require'lualine'.setup()
 
-
-
+require'lsp'
 
 
 
