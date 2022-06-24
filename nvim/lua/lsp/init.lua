@@ -34,14 +34,35 @@ end
 
 
 local null_ls = require'null-ls'
-
-
-
 null_ls.setup{
   sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.rustfmt
   },
 }
+
+
+local cmp = require'cmp'
+
+
+cmp.setup({
+  snippet = {
+    expand = function(args) 
+      require('snippy').expand_snippet(args.body)
+    end
+  },
+   mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+})
 
 
