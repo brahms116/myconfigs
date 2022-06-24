@@ -74,7 +74,7 @@ local buf_add_cb = function()
 end
 
 
-vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
+-- vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
 
 
 
