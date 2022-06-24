@@ -3,7 +3,6 @@ local use = require('packer').use
 require('packer').startup(function()
   use "wbthomason/packer.nvim"
   use "EdenEast/nightfox.nvim"
-  -- use {'neoclide/coc.nvim', branch="release"}
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'kassio/neoterm'
@@ -11,6 +10,7 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'tpope/vim-commentary'
   use 'nvim-treesitter/nvim-treesitter'
+--  use 'L3MON4D3/LuaSnip'
   use {'jose-elias-alvarez/null-ls.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {
     'nvim-lualine/lualine.nvim',
@@ -39,14 +39,6 @@ map("n","<leader>t",":T ")
 
  
 
--- coc
--- vim.api.nvim_set_keymap("n","<leader>a","<Plug>(coc-codeaction)",{})
--- vim.api.nvim_set_keymap("n","<leader>d","<Plug>(coc-definition)",{})
--- vim.api.nvim_set_keymap("n","<leader>[","<Plug>(coc-diagnostic-prev)",{})
--- vim.api.nvim_set_keymap("n","<leader>]","<Plug>(coc-diagnostic-next)",{})
--- map("n","<C-h>",":call CocActionAsync('doHover')<CR>")
--- map("n","<C-d>",":CocList diagnostics<CR>")
-
 
 -- Color Scheme
 vim.opt.termguicolors = true
@@ -61,6 +53,11 @@ map("n","<C-p>",":Files<CR>")
 -- status line
 require'lualine'.setup()
 
+-- snippets
+-- require("luasnip.loaders.from_snipmate").load()
+
+
+-- lsp setup
 require'lsp'
 
 
