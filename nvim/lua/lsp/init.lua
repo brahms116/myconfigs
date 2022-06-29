@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local servers = {'tsserver','rust_analyzer'}
+local servers = {'tsserver','rust_analyzer','gopls'}
 
 
 local on_attach = function(client,bufnr)
