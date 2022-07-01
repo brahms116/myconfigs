@@ -22,7 +22,7 @@ o.hlsearch=true
 o.scrolloff = 16
 
 vim.cmd('set noswapfile')
-vim.cmd('hi normal guibg=NONE ctermbg=NONE')
+-- vim.cmd('hi normal guibg=NONE ctermbg=NONE')
 vim.cmd('set clipboard+=unnamedplus')
 vim.cmd('set noshowmode')
 
@@ -73,7 +73,7 @@ local buf_add_cb = function()
   end
 end
 
--- vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
+vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
 
 -- Diagnostic config
 vim.diagnostic.config({})

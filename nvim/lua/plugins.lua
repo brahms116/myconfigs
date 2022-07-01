@@ -49,7 +49,7 @@ map("n","<leader>t",":T ")
 
 -- Color Scheme
 vim.opt.termguicolors = true
-vim.cmd("colorscheme melange")
+vim.cmd("colorscheme nightfox")
 
 -- fzf
 
