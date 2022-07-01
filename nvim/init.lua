@@ -82,9 +82,6 @@ vim.diagnostic.config({})
 
 
 
--- Buffer timeout setting
-vim.lsp.buf.format({timeout_ms=5000})
-
 
 
 
