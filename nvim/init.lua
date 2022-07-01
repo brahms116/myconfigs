@@ -73,8 +73,19 @@ local buf_add_cb = function()
   end
 end
 
-
 -- vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
+
+-- Diagnostic config
+vim.diagnostic.config({})
+
+
+
+
+
+-- Buffer timeout setting
+vim.lsp.buf.format({timeout_ms=5000})
+
+
 
 
 

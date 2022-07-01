@@ -7,12 +7,18 @@ local on_attach = function(client,bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
+
+  vim.cmd("command! LspDiagLine lua vim.diagnostic.open_float()")
+
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
+
+
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n','<leader>d',':LspDiagLine<CR>', bufopts)
   -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   -- vim.keymap.set('n', '<space>wl', function()
