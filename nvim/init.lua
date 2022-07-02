@@ -45,26 +45,44 @@ local save_buf = function()
 end
 
 local buf_add_cb = function()
+
   local bufs = vim.api.nvim_list_bufs()
   local wins = vim.api.nvim_list_wins()
-
-
   local displayed_buffers = {}
   local num_overlaps = 0 
 
-  for _,v in ipairs(wins) do 
-    if table_inc(displayed_buffers,v) then
-      num_overlaps = num_overlaps + 1
-    else
-      table.insert(displayed_buffers,v)
+  print('bufs')
+  print(vim.inspect(bufs))
+
+  local loaded_bufs = {}
+  for _,v in ipairs(bufs) do
+    local buf_name = vim.api.nvim_buf_get_name(v)
+    if vim.api.nvim_buf_is_loaded(v) and #buf_name > 0 then
+      table.insert(loaded_bufs, v)
     end
   end
 
-  local diff = #bufs + num_overlaps - #wins
+  for _,v in ipairs(wins) do 
+    local current_buf = vim.api.nvim_win_get_buf(v)
+    if table_inc(displayed_buffers,current_buf) then
+      num_overlaps = num_overlaps + 1
+    else
+      table.insert(displayed_buffers,current_buf)
+    end
+  end
+
+  print("displayed bufs:")
+  print(vim.inspect(displayed_buffers))
+--  print("loaded bufs:")
+-- print(vim.inspect(loaded_bufs))
+  
+  local diff = #loaded_bufs + num_overlaps - #wins
   if diff > 1 then
     table.sort(bufs)
-    for _,v in ipairs(bufs) do
+    for _,v in ipairs(loaded_bufs) do
       if not table_inc(displayed_buffers,v) then
+        print("deleting:")
+        print(v)
         vim.api.nvim_buf_call(v,save_buf)
         vim.api.nvim_buf_delete(v,{})
         break
@@ -73,7 +91,7 @@ local buf_add_cb = function()
   end
 end
 
-vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
+-- vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
 
 -- Diagnostic config
 vim.diagnostic.config({})
