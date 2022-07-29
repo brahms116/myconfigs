@@ -26,6 +26,11 @@ vim.cmd('set noswapfile')
 vim.cmd('set clipboard+=unnamedplus')
 vim.cmd('set noshowmode')
 
+vim.cmd('let g:netrw_keepdir = 0')
+vim.cmd('let g:netrw_winsize = 30')
+vim.cmd('let g:netrw_localcopydircmd = "cp -r" ')
+
+
 
 
 function table_inc(table,element)
