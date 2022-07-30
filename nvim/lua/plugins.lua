@@ -7,6 +7,7 @@ require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use 'kassio/neoterm'
   use 'savq/melange'
+  use "rebelot/kanagawa.nvim"
   use 'neovim/nvim-lspconfig'
   use 'tpope/vim-commentary'
   use 'nvim-treesitter/nvim-treesitter'
@@ -49,7 +50,7 @@ map("n","<leader>t",":T ")
 
 -- Color Scheme
 vim.opt.termguicolors = true
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme kanagawa")
 
 -- fzf
 
