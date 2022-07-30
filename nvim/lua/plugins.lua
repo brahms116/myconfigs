@@ -62,7 +62,17 @@ map("n","<C-p>",":Files<CR>")
 require'lualine'.setup()
 
 -- snippets
--- require("luasnip.loaders.from_snipmate").load()
+require('snippy').setup({
+    mappings = {
+        is = {
+            ['<Tab>'] = 'expand_or_advance',
+            ['<S-Tab>'] = 'previous',
+        },
+        nx = {
+            ['<leader>x'] = 'cut_text',
+        },
+    },
+})
 
 
 -- lsp setup
