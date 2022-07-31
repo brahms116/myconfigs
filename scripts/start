@@ -19,7 +19,17 @@ tmux send-keys -t "$name-servers:$name-servers" "lazygit"
 tmux send-keys -t "$name-servers:$name-servers" Enter
 
 tmux splitw -t "$name-servers:$name-servers" -h
+tmux send-keys -t "$name-servers:$name-servers" "cd $path"
+tmux send-keys -t "$name-servers:$name-servers" Enter
+tmux send-keys -t "$name-servers:$name-servers" "clear"
+tmux send-keys -t "$name-servers:$name-servers" Enter
+
+
 
 tmux splitw -t "$name-servers:$name-servers" 
+tmux send-keys -t "$name-servers:$name-servers" "cd $path"
+tmux send-keys -t "$name-servers:$name-servers" Enter
+tmux send-keys -t "$name-servers:$name-servers" "clear"
+tmux send-keys -t "$name-servers:$name-servers" Enter
 
 tmux attach -t "$name-editor"
