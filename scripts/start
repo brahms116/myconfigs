@@ -1,0 +1,25 @@
+#! /bin/bash
+
+name=$1
+path=$2
+
+
+
+tmux new -d -s "$name-editor" -c $path
+tmux new -d -s "$name-servers" -c $path
+
+tmux rename-window -t "$name-editor:0" "$name-nvim"
+
+tmux send-keys -t "$name-editor:$name-nvim" "nvim"
+tmux send-keys -t "$name-editor:$name-nvim" Enter
+
+tmux rename-window -t "$name-servers:0" "$name-servers"
+
+tmux send-keys -t "$name-servers:$name-servers" "lazygit"
+tmux send-keys -t "$name-servers:$name-servers" Enter
+
+tmux splitw -t "$name-servers:$name-servers" -h
+
+tmux splitw -t "$name-servers:$name-servers" 
+
+tmux attach -t "$name-editor"
