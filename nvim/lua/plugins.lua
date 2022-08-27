@@ -18,6 +18,11 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+--  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 --  use 'L3MON4D3/LuaSnip'
   use {'jose-elias-alvarez/null-ls.nvim', requires = {'nvim-lua/plenary.nvim'} }
   use {
@@ -77,6 +82,21 @@ require('snippy').setup({
 
 -- lsp setup
 require'lsp'
+
+-- markdown preview
+vim.g.mkdp_open_to_the_world = 1
+vim.g.mkdp_open_ip = "127.0.0.1"
+vim.g.mkdp_port = 8080
+
+vim.g.empty_func = function()
+end
+
+vim.cmd([[
+  function! g:Empty(url)
+  endfunction
+  ]])
+
+vim.g.mkdp_browserfunc="empty"
 
 
 
