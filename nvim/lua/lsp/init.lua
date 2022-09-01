@@ -26,7 +26,7 @@ local on_attach = function(client,bufnr)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
   -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  -- vim.keymap.set('n', '<leader>f', '<cmd> lua vim.lsp.buf.format()<CR>', bufopts)
+  vim.keymap.set('n', '<leader>F', '<cmd> lua vim.lsp.buf.format({timeout_ms=50000})<CR>', bufopts)
 end
 
 for _, v in ipairs (servers) do
@@ -40,6 +40,7 @@ end
 local null_ls = require'null-ls'
 null_ls.setup{
   sources = {
+    null_ls.builtins.formatting.prettier_d_slim,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.rustfmt
   },

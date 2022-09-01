@@ -56,16 +56,8 @@ local buf_add_cb = function()
   local displayed_buffers = {}
   local num_overlaps = 0 
 
-  print('bufs')
-  print(vim.inspect(bufs))
-
-  -- local loaded_bufs = {}
-  -- for _,v in ipairs(bufs) do
-  --   local buf_name = vim.api.nvim_buf_get_name(v)
-  --   if vim.api.nvim_buf_is_loaded(v) and #buf_name > 0 then
-  --     table.insert(loaded_bufs, v)
-  --   end
-  -- end
+  --print('bufs')
+  --print(vim.inspect(bufs))
 
   for _,v in ipairs(wins) do 
     local current_buf = vim.api.nvim_win_get_buf(v)
@@ -76,20 +68,19 @@ local buf_add_cb = function()
     end
   end
 
-  print("displayed bufs:")
-  print(vim.inspect(displayed_buffers))
-  -- print("loaded bufs:")
-  -- print(vim.inspect(loaded_bufs))
-  --
+  --print("displayed bufs:")
+  --print(vim.inspect(displayed_buffers))
   
   
+  -- there is a bug here, sometimes I see 4 buffers open
+  -- when I do :ls
   local diff = #bufs + num_overlaps - #wins
   if diff > 1 then
     table.sort(bufs)
     for _,v in ipairs(bufs) do
       if not table_inc(displayed_buffers,v) then
-        print("deleting:")
-        print(v)
+        --print("deleting:")
+        --print(v)
         if string.len(vim.api.nvim_buf_get_name(v)) > 0 then
           vim.api.nvim_buf_call(v,save_buf)
         end
@@ -100,7 +91,8 @@ local buf_add_cb = function()
   end
 end
 
-vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
+-- this almost works, except it screws up null-ls and prettier at that 
+--vim.api.nvim_create_autocmd({"BufAdd"},{pattern={"*"}, callback = buf_add_cb })
 
 -- Diagnostic config
 vim.diagnostic.config({})
