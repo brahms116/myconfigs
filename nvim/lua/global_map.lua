@@ -47,9 +47,6 @@ vim.keymap.set('n','<leader>p',':cp<CR>')
 vim.keymap.set('n','<leader>f',':Lexplore %:p:h<CR>')
 vim.keymap.set('n','<C-f>',':grep ')
 
-vim.keymap.set('n','<C-f>',':grep ')
-
-
 -- Save on format, should remove this if lsp is not configured
 vim.keymap.set('n','<leader>w','<cmd>lua vim.lsp.buf.format()<CR>:w<CR>')
 

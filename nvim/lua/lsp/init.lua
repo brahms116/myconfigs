@@ -1,3 +1,16 @@
+local null_ls = require'null-ls'
+null_ls.setup{
+  debug = true,
+  sources = {
+    null_ls.builtins.formatting.eslint_d,
+    null_ls.builtins.formatting.prettierd.with({
+      filetypes = {"html","json","yaml", "vue", "graphql" ,"jsonc","markdown","markdown.mdx"},
+    }),
+    null_ls.builtins.formatting.stylelint,
+    null_ls.builtins.formatting.rustfmt
+  },
+}
+
 local nvim_lsp = require('lspconfig')
 local servers = {'tsserver','rust_analyzer','gopls'}
 
@@ -37,17 +50,6 @@ end
 
 
 
-local null_ls = require'null-ls'
-null_ls.setup{
-  sources = {
-    null_ls.builtins.formatting.prettierd.with({
-      filetypes = {"html","json","yaml","graphql","vue", "jsonc","markdown","markdown.mdx"},
-    }),
-    null_ls.builtins.formatting.stylelint,
-    null_ls.builtins.formatting.rustfmt,
-    null_ls.builtins.formatting.eslint_d
-  },
-}
 
 
 local cmp = require'cmp'
