@@ -7,6 +7,8 @@ map("n","<leader>k",":bn<CR>")
 map("n","<leader>q",":bd<CR>")
 map("n","<leader>l","<C-w>l<CR>")
 map("n","<leader>h","<C-w>h<CR>")
+map("n","<C-j>","10j")
+map("n","<C-k>","10k")
 
 function is_backspace_clear()
   local position = vim.api.nvim_win_get_cursor(0)
