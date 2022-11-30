@@ -3,11 +3,6 @@
 name=$1
 path=$2
 
-
-
-
-
-
 tmux new -d -s "$name-editor" -c $path
 tmux new -d -s "$name-servers" -c $path
 
