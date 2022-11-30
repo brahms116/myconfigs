@@ -3,6 +3,7 @@ null_ls.setup{
   debug = true,
   sources = {
     null_ls.builtins.formatting.eslint_d,
+    null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.formatting.prettierd.with({
       filetypes = {"html","json","yaml", "vue", "graphql" ,"jsonc","markdown","markdown.mdx"},
     }),
