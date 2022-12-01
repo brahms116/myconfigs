@@ -12,4 +12,6 @@ if status is-interactive
     alias ls="exa -al --no-permissions --git"
     alias lsr="exa -al --tree -R --level=2 --no-permissions --git"
     alias lg=lazygit
+    alias cl=clear
+    alias vi=nvim
 end
