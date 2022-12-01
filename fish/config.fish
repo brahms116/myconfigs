@@ -9,8 +9,8 @@ set -gx PATH "/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    alias ls="exa -al --no-permissions --git"
-    alias lsr="exa -al --tree -R --level=2 --no-permissions --git"
+    alias ls="exa -al --no-permissions"
+    alias lsr="exa -al --tree -R --level=2 --no-permissions"
     alias lg=lazygit
     alias cl=clear
     alias vi=nvim
