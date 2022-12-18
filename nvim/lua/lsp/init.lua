@@ -13,7 +13,7 @@ null_ls.setup{
 }
 
 local nvim_lsp = require('lspconfig')
-local servers = {'tsserver','rust_analyzer','gopls'}
+local servers = {'tsserver','rust_analyzer','gopls', 'hls'}
 
 
 local on_attach = function(client,bufnr)
