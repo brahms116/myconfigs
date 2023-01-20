@@ -16,6 +16,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'github/copilot.vim'
   use {'jose-elias-alvarez/null-ls.nvim', requires = {'nvim-lua/plenary.nvim'} }
+  use 'tpope/vim-vinegar'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
