@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,12 +41,23 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
 time([[Luarocks path setup]], true)
+local package_path_str = "/Users/davidkwong/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/davidkwong/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/davidkwong/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/davidkwong/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/davidkwong/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+if not string.find(package.path, package_path_str, 1, true) then
+  package.path = package.path .. ';' .. package_path_str
+end
+
+if not string.find(package.cpath, install_cpath_pattern, 1, true) then
+  package.cpath = package.cpath .. ';' .. install_cpath_pattern
+end
 
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
@@ -62,117 +76,125 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-cmdline"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/cmp-path",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-snippy"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/cmp-snippy",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/cmp-snippy",
     url = "https://github.com/dcampos/cmp-snippy"
   },
   fzf = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/fzf",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf.vim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   melange = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/melange",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/melange",
     url = "https://github.com/savq/melange"
   },
   neoterm = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/neoterm",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/neoterm",
     url = "https://github.com/kassio/neoterm"
   },
   ["nightfox.nvim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-snippy"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-snippy",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/nvim-snippy",
     url = "https://github.com/dcampos/nvim-snippy"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   }
 }
 
 time([[Defining packer_plugins]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
