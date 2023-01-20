@@ -1,4 +1,3 @@
-
 map("i","jj","<ESC>")
 map("i","<ESC>","<NOP>")
 map("n","<leader>v",":vs<CR>")
@@ -10,27 +9,6 @@ map("n","<leader>h","<C-w>h<CR>")
 map("n","<C-j>","10j")
 map("n","<C-k>","10k")
 
-function is_backspace_clear()
-  local position = vim.api.nvim_win_get_cursor(0)
-  local col = position[2]
-  if col == 0 then
-    return true
-  end
-  local char = string.sub(vim.api.nvim_get_current_line(),col,col)
-  if string.match(char,'%s') then
-     return true  
-   else
-     return false
-   end
-end 
-
-function handle_tab()
-  if vim.fn['pumvisible']() and not is_backspace_clear() then
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<c-n>",true,true,true))
-  else
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<TAB>",true,true,true),'n')
-  end
-end
 
 local is_quick_fix_open = false
 function handle_o()
@@ -43,17 +21,16 @@ function handle_o()
   end
 end
 
--- vim.keymap.set('i','<TAB>',handle_tab)
-vim.keymap.set('n','<leader>n',':cn<CR>')
-vim.keymap.set('n','<leader>p',':cp<CR>')
-vim.keymap.set('n','<leader>f',':Lexplore %:p:h<CR>')
-vim.keymap.set('n','<C-f>',':grep ')
+map('n','<leader>n',':cn<CR>')
+map('n','<leader>p',':cp<CR>')
+map('n','<leader>f',':Lexplore %:p:h<CR>')
+map('n','<C-f>',':grep ')
 
 -- Save on format, should remove this if lsp is not configured
-vim.keymap.set('n','<leader>w','<cmd>lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end})<CR>:w<CR>')
+map('n','<leader>w','<cmd>lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end})<CR>:w<CR>')
               
 
-vim.keymap.set('n','<leader>o',handle_o)
+map('n','<leader>o',':lua handle_o()<CR>')
 
 
 

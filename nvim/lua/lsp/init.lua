@@ -30,15 +30,8 @@ local on_attach = function(client,bufnr)
   vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n','<leader>e',vim.diagnostic.open_float, bufopts)
-  -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wl', function()
-   -- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end, bufopts)
-  -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
-  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>F', '<cmd> lua vim.lsp.buf.format({timeout_ms=50000})<CR>', bufopts)
 end
 
@@ -48,12 +41,7 @@ for _, v in ipairs (servers) do
   }
 end
 
-
-
-
-
 local cmp = require'cmp'
-
 
 cmp.setup({
   snippet = {
