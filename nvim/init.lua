@@ -21,12 +21,11 @@ o.hlsearch=true
 o.scrolloff = 16
 
 vim.cmd('set noswapfile')
-vim.cmd('hi normal guibg=NONE ctermbg=NONE')
 vim.cmd('set clipboard+=unnamedplus')
 vim.cmd('set noshowmode')
 
 vim.cmd('let g:netrw_keepdir = 0')
-vim.cmd('let g:netrw_winsize = 30')
+vim.cmd('let g:netrw_winsize = 20')
 vim.cmd('let g:netrw_liststyle = 3')
 vim.cmd('let g:netrw_localcopydircmd = "cp -r" ')
 

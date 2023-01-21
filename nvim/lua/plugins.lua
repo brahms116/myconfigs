@@ -3,7 +3,6 @@ require('packer').startup(function()
   use "wbthomason/packer.nvim"
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-  use "rebelot/kanagawa.nvim"
   use 'neovim/nvim-lspconfig'
   use 'tpope/vim-commentary'
   use 'nvim-treesitter/nvim-treesitter'
@@ -11,6 +10,7 @@ require('packer').startup(function()
   use 'dcampos/cmp-snippy'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'sainnhe/gruvbox-material'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
@@ -23,33 +23,22 @@ require('packer').startup(function()
   }
 end)
 
-
--- terminal
-vim.g.neoterm_default_mod="belowright"
-vim.g.neoterm_keep_term_open = false
-is_term_open = false
-
-local function toggleTerminal()
-  if is_term_open then
-    is_term_open = false
-    return vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":Tclose<CR>",true,true,true))
-  else
-    is_term_open = true
-    return vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":T cd " .. vim.fn.expand('%:p:h').."<CR>",true,true,true))
-  end
-end
+-- status line
+require'lualine'.setup({
+  options = {
+    theme = 'gruvbox-material'
+  }
+})
 
 -- Color Scheme
 vim.opt.termguicolors = true
-vim.cmd("colorscheme kanagawa")
+vim.cmd("let g:gruvbox_material_background = 'soft'")
+vim.cmd("colorscheme gruvbox-material")
 
 -- fzf
 
 vim.opt.grepprg = "rg --follow --vimgrep --smart-case --no-heading"
 map("n","<C-p>",":Files<CR>")
-
--- status line
-require'lualine'.setup()
 
 -- snippets
 require('snippy').setup({
@@ -63,7 +52,6 @@ require('snippy').setup({
         },
     },
 })
-
 
 -- lsp setup
 require'lsp'

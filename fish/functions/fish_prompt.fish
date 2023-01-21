@@ -1,0 +1,1 @@
+/home/ubuntu/.local/share/omf/themes/aight/fish_prompt.fish
