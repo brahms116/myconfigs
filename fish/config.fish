@@ -27,4 +27,3 @@ if status is-interactive
     alias vi=nvim
 end
 
-nvm use lts/gallium
