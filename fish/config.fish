@@ -3,6 +3,13 @@ set -gx PATH "$PATH:$HOME/dev/tools"
 set -gx PATH "$PATH:$HOME/usr/local/go/bin"
 set -gx PATH "$PATH:$HOME/go/bin"
 set -gx PATH "$PATH:$HOME/.bin"
+set -gx PATH "$PATH:Library/Python/3.8/"
+set -gx PATH "$PATH:Library/Python/3.8/lib/python/site-packages/pipenv/bin/"
+set -gx PATH "$PATH:$ANDROID_HOME/emulator"
+set -gx PATH "$PATH:$ANDROID_HOME/platform-tools"
+set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
+set -gx NVM "$HOME/.nvm"
+
 set -gx TOOLS_DIR "$HOME/dev/tools"
 set -gx ESLINT_D_LOCAL_ESLINT_ONLY 1
 set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
@@ -20,7 +27,4 @@ if status is-interactive
     alias vi=nvim
 end
 
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/davidkwong/.ghcup/bin $PATH # ghcup-env
+nvm use lts/gallium
