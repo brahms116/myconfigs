@@ -8,7 +8,6 @@ set -gx PATH "$PATH:Library/Python/3.8/lib/python/site-packages/pipenv/bin/"
 set -gx PATH "$PATH:$ANDROID_HOME/emulator"
 set -gx PATH "$PATH:$ANDROID_HOME/platform-tools"
 set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
-set -gx NVM "$HOME/.nvm"
 
 set -gx TOOLS_DIR "$HOME/dev/tools"
 set -gx ESLINT_D_LOCAL_ESLINT_ONLY 1
@@ -16,7 +15,7 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --no-ignore-vcs --hidden -g "!{
 set -gx PATH "$PATH:$HOME/.cargo/bin"
 set -gx EDITOR nvim
 set -gx PATH "/usr/local/opt/mongodb-community@4.4/bin:$PATH"
-set -gx NODE "$HOME/.bun/bin/bun"
+
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -25,5 +24,6 @@ if status is-interactive
     alias lg=lazygit
     alias cl=clear
     alias vi=nvim
+    rtx activate fish | source
 end
 
