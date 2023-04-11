@@ -9,6 +9,9 @@ set -gx PATH "$PATH:$ANDROID_HOME/emulator"
 set -gx PATH "$PATH:$ANDROID_HOME/platform-tools"
 set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
 
+set -gx API_ENDPOINT "https://aqo9tu62bl.execute-api.ap-southeast-2.amazonaws.com/PROD"
+set -gx ENVIRONMENT "DEV"
+
 set -gx TOOLS_DIR "$HOME/dev/tools"
 set -gx ESLINT_D_LOCAL_ESLINT_ONLY 1
 set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
@@ -27,3 +30,4 @@ if status is-interactive
     rtx activate fish | source
 end
 
+rtx activate fish | source
