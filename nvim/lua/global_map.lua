@@ -27,7 +27,7 @@ map('n','<leader>f',':Lexplore %:p:h<CR>')
 map('n','<C-f>',':grep ')
 
 -- Save on format, should remove this if lsp is not configured
-map('n','<leader>w','<cmd>lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end})<CR>:w<CR>')
+map('n','<leader>w',':w<CR>')
               
 
 map('n','<leader>o',':lua handle_o()<CR>')
