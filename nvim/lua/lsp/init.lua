@@ -1,19 +1,3 @@
-local null_ls = require'null-ls'
-null_ls.setup{
-  debug = true,
-  sources = {
-    null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.diagnostics.eslint_d,
-    null_ls.builtins.formatting.prettierd.with({
-      filetypes = {"html","json","yaml", "vue", "graphql" ,"jsonc","markdown","markdown.mdx"},
-    }),
-    null_ls.builtins.formatting.stylelint,
-    null_ls.builtins.formatting.rustfmt,
-    null_ls.builtins.formatting.taplo,
-    null_ls.builtins.formatting.phpcbf,
-  },
-}
-
 local nvim_lsp = require('lspconfig')
 local servers = {'tsserver','rust_analyzer','gopls', 'hls'}
 
@@ -25,7 +9,6 @@ local on_attach = function(client,bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
 
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-
 
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, bufopts)

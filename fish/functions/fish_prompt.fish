@@ -1,1 +1,1 @@
-/home/ubuntu/.local/share/omf/themes/aight/fish_prompt.fish
+/Users/davidkwong/.local/share/omf/themes/aight/fish_prompt.fish
