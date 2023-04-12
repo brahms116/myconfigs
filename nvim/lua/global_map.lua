@@ -28,7 +28,6 @@ map('n','<C-f>',':grep ')
 
 -- Save on format, should remove this if lsp is not configured
 map('n','<leader>w',':w<CR>')
-              
 
 map('n','<leader>o',':lua handle_o()<CR>')
 

@@ -1,26 +1,3 @@
-require 'lspconfig'.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-
 local nvim_lsp = require('lspconfig')
 local servers = { 'tsserver', 'rust_analyzer', 'gopls', 'hls', 'eslint', 'terraformls', 'lua_ls' }
 
@@ -38,15 +15,41 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, bufopts)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<leader>F',
-  '<cmd> lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end, timeout_ms=50000})<CR>',
-  bufopts)
+  vim.keymap.set('n', '<C-p>',
+    '<cmd> lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end, timeout_ms=50000})<CR>',
+    bufopts)
 end
 
 for _, v in ipairs(servers) do
-  nvim_lsp[v].setup {
-    on_attach = on_attach
-  }
+  if v == 'lua_ls' then
+    nvim_lsp.lua_ls.setup {
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT',
+          },
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = { 'vim' },
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          -- Do not send telemetry data containing a randomized but unique identifier
+          telemetry = {
+            enable = false,
+          },
+        },
+      },
+    }
+  else
+    nvim_lsp[v].setup {
+      on_attach = on_attach
+    }
+  end
 end
 
 local cmp = require 'cmp'
@@ -61,11 +64,11 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'snippy' },   -- For snippy users.
+    { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
   })
