@@ -32,10 +32,6 @@ vim.opt.termguicolors = true
 vim.cmd("let g:gruvbox_material_background = 'soft'")
 vim.cmd("colorscheme gruvbox-material")
 
--- fzf
-
-vim.opt.grepprg = "rg --follow --vimgrep --smart-case --no-heading"
-
 -- snippets
 require('snippy').setup({
     mappings = {

@@ -20,9 +20,12 @@ local on_attach = function(client, bufnr)
     bufopts)
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 for _, v in ipairs(servers) do
   if v == 'lua_ls' then
     nvim_lsp.lua_ls.setup {
+      capabilities = capabilities,
       on_attach = on_attach,
       settings = {
         Lua = {
@@ -47,6 +50,7 @@ for _, v in ipairs(servers) do
     }
   else
     nvim_lsp[v].setup {
+      capabilities = capabilities,
       on_attach = on_attach
     }
   end

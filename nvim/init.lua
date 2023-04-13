@@ -2,10 +2,13 @@
 -- David's edtior config
 -- =========================
 
+--- @class PluginSettings
+--- @field lsp boolean
+--- @field treesitter boolean
+--- @field copilot boolean
 
 --- @class SetupSettings
---- @field plugins boolean
---- @field lsp boolean
+--- @field plugins PluginSettings | nil
 
 --- Setup function emcompasses everything to setup
 --
@@ -76,12 +79,80 @@ local function setup(settings)
 
   -- Plugins --
 
+  local packer = require('packer')
+  local use = packer.use
+
+  local function packerStartup()
+    -- Essentials --
+    use "wbthomason/packer.nvim"
+    use 'tpope/vim-commentary'
+    use 'tpope/vim-vinegar'
+    use 'sainnhe/gruvbox-material'
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    -- nvim cmp --
+    use 'hrsh7th/nvim-cmp'
+    use 'dcampos/nvim-snippy'
+    use 'dcampos/cmp-snippy'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+
+    -- Treesitter --
+    if settings.plugins.treesitter then
+      use 'nvim-treesitter/nvim-treesitter'
+    end
+
+    -- LSP --
+    if settings.plugins.lsp then
+      use 'neovim/nvim-lspconfig'
+      use 'hrsh7th/cmp-nvim-lsp'
+    end
+
+    -- Copilot --
+    if settings.plugins.copilot then
+      use 'github/copilot.vim'
+    end
+  end
+  packer.startup(packerStartup)
+
+  -- Color Scheme
+  vim.opt.termguicolors = true
+  vim.cmd("let g:gruvbox_material_background = 'soft'")
+  vim.cmd("colorscheme gruvbox-material")
+
+  -- status line
+  local luaLine = require('lualine')
+  luaLine.setup({
+    options = {
+      theme = 'gruvbox-material'
+    }
+  })
+
+  -- snippets
+  local snippy = require('snippy')
+  snippy.setup({
+    mappings = {
+      is = {
+        ['<Tab>'] = 'expand_or_advance',
+        ['<S-Tab>'] = 'previous',
+      },
+      nx = {
+        ['<leader>x'] = 'cut_text',
+      },
+    },
+  })
+  -- lsp setup
+  require 'lsp'
 end
 
 setup({
-  plugins = true,
-  lsp = true,
+  plugins = {
+    lsp = true,
+    treesitter = true,
+    copilot = true,
+  },
 })
-
-require('plugins')
-
