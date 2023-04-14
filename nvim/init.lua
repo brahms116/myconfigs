@@ -37,6 +37,10 @@ local function setup(settings)
   vim.cmd('let g:netrw_liststyle = 3')
   vim.cmd('let g:netrw_localcopydircmd = "cp -r" ')
 
+
+  -- rg?? --
+  vim.opt.grepprg = "rg --follow --vimgrep --smart-case --no-heading"
+
   -- Global key maps --
   local setKeymapOpts = {
     noremap = true,
@@ -52,6 +56,7 @@ local function setup(settings)
   vim.keymap.set('n', '<leader>h', '<C-w>h<CR>', setKeymapOpts)
   vim.keymap.set('n', '<C-j>', '10j', setKeymapOpts)
   vim.keymap.set('n', '<C-k>', '10k', setKeymapOpts)
+  vim.keymap.set('n', '<C-p>', ':ls<CR>:b<Space>', setKeymapOpts)
 
   -- Global quickfix keymaps --
 

@@ -15,7 +15,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, bufopts)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<C-p>',
+  vim.keymap.set('n', '<leader>f',
     '<cmd> lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end, timeout_ms=50000})<CR>',
     bufopts)
 end
