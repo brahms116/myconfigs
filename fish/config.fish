@@ -22,7 +22,7 @@ source ~/.asdf/asdf.fish
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    alias ls="exa -al --no-permissions"
+    alias lss="exa -al --no-permissions"
     alias lsr="exa -al --tree -R --level=2 --no-permissions"
     alias lg=lazygit
     alias cl=clear
