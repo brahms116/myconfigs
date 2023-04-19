@@ -18,7 +18,13 @@ set -gx PATH "$PATH:$HOME/.cargo/bin"
 set -gx EDITOR nvim
 set -gx PATH "/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 
-source ~/.asdf/asdf.fish
+if test -e ~/.asdf/asdf.fish
+  source ~/.asdf/asdf.fish
+end
+
+if test -e ~/.secrets.fish
+  source ~/.secrets.fish
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
