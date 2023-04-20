@@ -184,7 +184,16 @@ local function setup(settings)
   -- lsp setup --
 
   local nvim_lsp = require('lspconfig')
-  local servers = { 'tsserver', 'rust_analyzer', 'gopls', 'hls', 'eslint', 'terraformls', 'lua_ls' }
+  local servers = {
+    'tsserver',
+    'rust_analyzer',
+    'gopls',
+    'hls',
+    'eslint',
+    'terraformls',
+    'lua_ls',
+    'intelephense'
+  }
 
 
   local on_attach = function(client, bufnr)
