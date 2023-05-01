@@ -93,6 +93,7 @@ local function setup(settings)
     use 'tpope/vim-commentary'
     use 'tpope/vim-vinegar'
     use 'sainnhe/gruvbox-material'
+    use 'sainnhe/everforest'
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -127,13 +128,17 @@ local function setup(settings)
   -- Color Scheme
   vim.opt.termguicolors = true
   vim.cmd("let g:gruvbox_material_background = 'soft'")
-  vim.cmd("colorscheme gruvbox-material")
+  vim.cmd("colorscheme everforest")
+  vim.opt.background = "light"
+  vim.g.everforest_background = "soft"
+  vim.cmd("hi normal guibg=NONE ctermbg=NONE")
+  vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
   -- status line
   local luaLine = require('lualine')
   luaLine.setup({
     options = {
-      theme = 'gruvbox-material'
+      theme = 'everforest'
     }
   })
 
@@ -184,7 +189,16 @@ local function setup(settings)
   -- lsp setup --
 
   local nvim_lsp = require('lspconfig')
-  local servers = { 'tsserver', 'rust_analyzer', 'gopls', 'hls', 'eslint', 'terraformls', 'lua_ls' }
+  local servers = {
+    'tsserver',
+    'rust_analyzer',
+    'gopls',
+    'hls',
+    'eslint',
+    'terraformls',
+    'lua_ls',
+    'taplo'
+  }
 
 
   local on_attach = function(client, bufnr)
