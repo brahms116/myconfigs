@@ -131,8 +131,6 @@ local function setup(settings)
   vim.cmd("colorscheme everforest")
   vim.opt.background = "light"
   vim.g.everforest_background = "soft"
-  vim.cmd("hi normal guibg=NONE ctermbg=NONE")
-  vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
   -- status line
   local luaLine = require('lualine')
