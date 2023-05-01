@@ -197,7 +197,8 @@ local function setup(settings)
     'eslint',
     'terraformls',
     'lua_ls',
-    'taplo'
+    'taplo',
+    'intelephense'
   }
 
 

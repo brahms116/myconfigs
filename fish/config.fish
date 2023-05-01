@@ -18,11 +18,17 @@ set -gx PATH "$PATH:$HOME/.cargo/bin"
 set -gx EDITOR nvim
 set -gx PATH "/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 
-source ~/.asdf/asdf.fish
+if test -e ~/.asdf/asdf.fish
+  source ~/.asdf/asdf.fish
+end
+
+if test -e ~/.secrets.fish
+  source ~/.secrets.fish
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    alias ls="exa -al --no-permissions"
+    alias lss="exa -al --no-permissions"
     alias lsr="exa -al --tree -R --level=2 --no-permissions"
     alias lg=lazygit
     alias cl=clear
