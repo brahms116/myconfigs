@@ -130,7 +130,11 @@ local function setup(settings)
   vim.cmd("let g:gruvbox_material_background = 'soft'")
   vim.cmd("colorscheme everforest")
   vim.opt.background = "light"
-  vim.g.everforest_background = "soft"
+  vim.cmd("let g:everforest_background = 'soft'")
+  vim.cmd("hi! normal guibg=000000")
+  vim.cmd("hi! nontext guibg=000000")
+  vim.cmd("hi! endofbuffer guibg=000000")
+  vim.cmd("hi! normalnc guibg=000000")
 
   -- status line
   local luaLine = require('lualine')
