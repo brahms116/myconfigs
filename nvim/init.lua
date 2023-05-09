@@ -253,6 +253,14 @@ local function setup(settings)
     end
     nvim_lsp[v].setup(params)
   end
+
+  -- php setup --
+  vim.api.nvim_create_augroup('Enter PHP', {clear = true})
+  vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = '*.php',
+    command = 'setlocal tw=4 sw=4',
+    group = 'Enter PHP'
+  })
 end
 
 setup({
