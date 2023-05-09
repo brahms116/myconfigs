@@ -34,7 +34,7 @@ local function setup(settings)
   vim.cmd('set noshowmode')
   vim.cmd('let g:netrw_keepdir = 0')
   vim.cmd('let g:netrw_winsize = 20')
-  vim.cmd('let g:netrw_liststyle = 3')
+  vim.cmd('let g:netrw_liststyle = 1')
   vim.cmd('let g:netrw_localcopydircmd = "cp -r" ')
 
 
