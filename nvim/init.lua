@@ -6,6 +6,7 @@
 --- @field lsp boolean
 --- @field treesitter boolean
 --- @field copilot boolean
+--- @field fzf boolean
 
 --- @class SetupSettings
 --- @field plugins PluginSettings | nil
@@ -122,6 +123,11 @@ local function setup(settings)
     if settings.plugins.copilot then
       use 'github/copilot.vim'
     end
+
+    if settings.plugins.fzf then
+      use 'junegunn/fzf'
+      use 'junegunn/fzf.vim'
+    end
   end
   packer.startup(packerStartup)
 
@@ -183,6 +189,9 @@ local function setup(settings)
       { name = 'buffer' },
     })
   })
+
+  -- fzf --
+  vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
 
   if not settings.plugins.lsp then
     return
@@ -268,5 +277,6 @@ setup({
     lsp = true,
     treesitter = true,
     copilot = true,
+    fzf = true,
   },
 })
