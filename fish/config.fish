@@ -1,6 +1,6 @@
 set -gx PATH "$PATH:$HOME/dotfiles/scripts"
 set -gx PATH "$PATH:$HOME/dev/tools"
-set -gx PATH "$PATH:$HOME/usr/local/go/bin"
+set -gx PATH "$PATH:/usr/local/go/bin"
 set -gx PATH "$PATH:$HOME/go/bin"
 set -gx PATH "$PATH:$HOME/.bin"
 set -gx PATH "$PATH:Library/Python/3.8/"
