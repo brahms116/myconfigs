@@ -209,7 +209,8 @@ local function setup(settings)
     'terraformls',
     'lua_ls',
     'taplo',
-    'intelephense'
+    'intelephense',
+    'clangd'
   }
 
 
@@ -238,6 +239,11 @@ local function setup(settings)
       capabilities = capabilities,
       on_attach = on_attach,
     }
+
+    if v == 'clangd' then
+      capabilities.offset_encoding = "utf-8"
+    end
+
     if v == 'lua_ls' then
       params['settings'] = {
         Lua = {
@@ -260,6 +266,7 @@ local function setup(settings)
         },
       }
     end
+
     nvim_lsp[v].setup(params)
   end
 
