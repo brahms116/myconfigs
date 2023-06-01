@@ -144,7 +144,7 @@ local function setup(settings)
   local luaLine = require('lualine')
   luaLine.setup({
     options = {
-      theme = 'gruvbox_material'
+      theme = 'gruvbox-material'
     }
   })
 
