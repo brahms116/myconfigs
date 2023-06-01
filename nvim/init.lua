@@ -134,9 +134,7 @@ local function setup(settings)
   -- Color Scheme
   vim.opt.termguicolors = true
   vim.cmd("let g:gruvbox_material_background = 'soft'")
-  vim.cmd("colorscheme everforest")
-  vim.opt.background = "light"
-  vim.cmd("let g:everforest_background = 'soft'")
+  vim.cmd("colorscheme gruvbox-material")
   vim.cmd("hi! normal guibg=000000")
   vim.cmd("hi! nontext guibg=000000")
   vim.cmd("hi! endofbuffer guibg=000000")
@@ -146,7 +144,7 @@ local function setup(settings)
   local luaLine = require('lualine')
   luaLine.setup({
     options = {
-      theme = 'everforest'
+      theme = 'gruvbox_material'
     }
   })
 
