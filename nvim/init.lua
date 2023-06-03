@@ -92,12 +92,15 @@ local function setup(settings)
     -- Essentials --
     use "wbthomason/packer.nvim"
     use 'tpope/vim-commentary'
-    use 'tpope/vim-vinegar'
     use 'sainnhe/gruvbox-material'
     use 'sainnhe/everforest'
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+   use {
+      'stevearc/oil.nvim',
+      config = function() require('oil').setup() end
     }
 
     -- nvim cmp --
@@ -130,6 +133,11 @@ local function setup(settings)
     end
   end
   packer.startup(packerStartup)
+
+
+  -- Oil keymaps --
+  vim.keymap.set('n', '-', require('oil').open , setKeymapOpts)
+
 
   -- Color Scheme
   vim.opt.termguicolors = true
