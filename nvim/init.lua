@@ -28,7 +28,7 @@ local function setup(settings)
   vim.opt.smartcase = true
   vim.opt.incsearch = true
   vim.opt.hlsearch = true
-  vim.opt.scrolloff = 16
+  vim.opt.scrolloff = 4
 
   vim.cmd('set noswapfile')
   vim.cmd('set clipboard+=unnamedplus')
