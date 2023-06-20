@@ -26,6 +26,11 @@ if test -e ~/.secrets.fish
   source ~/.secrets.fish
 end
 
+if test -e ~/.path.fish
+  source ~/.path.fish
+end
+
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     alias lss="exa -al --no-permissions"
