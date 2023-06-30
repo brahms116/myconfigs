@@ -30,6 +30,10 @@ if test -e ~/.path.fish
   source ~/.path.fish
 end
 
+if test -e ~/.alias.fish
+  source ~/.alias.fish
+end
+
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
