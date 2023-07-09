@@ -216,7 +216,10 @@ local function setup(settings)
     'lua_ls',
     'taplo',
     'intelephense',
-    'clangd'
+    'clangd',
+    'jsonls',
+    'cssls',
+    'html'
   }
 
 
