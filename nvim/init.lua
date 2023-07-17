@@ -79,6 +79,14 @@ local function setup(settings)
   vim.keymap.set('n', '<leader>w', ':w<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>o', ':lua Handle_o()<CR>', setKeymapOpts)
 
+  -- php setup --
+  vim.api.nvim_create_augroup('Enter PHP', { clear = true })
+  vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = '*.php',
+    command = 'setlocal tw=4 sw=4',
+    group = 'Enter PHP'
+  })
+
   if not settings.plugins then
     return
   end
@@ -98,7 +106,7 @@ local function setup(settings)
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-   use {
+    use {
       'stevearc/oil.nvim',
       config = function() require('oil').setup() end
     }
@@ -136,7 +144,7 @@ local function setup(settings)
 
 
   -- Oil keymaps --
-  vim.keymap.set('n', '-', require('oil').open , setKeymapOpts)
+  vim.keymap.set('n', '-', require('oil').open, setKeymapOpts)
 
 
   -- Color Scheme
@@ -198,6 +206,28 @@ local function setup(settings)
 
   -- fzf --
   vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
+
+  -- treesitter --
+  if settings.plugins.treesitter then
+    require('nvim-treesitter.configs').setup({
+      ensure_installed = { "lua", "terraform", "rust", "json", "html", "css", "typescript", "vim" },
+      indent = {
+        enable = true
+      },
+      highlight = {
+        enable = true,
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
+          },
+        },
+      },
+    })
+  end
 
   if not settings.plugins.lsp then
     return
@@ -278,14 +308,6 @@ local function setup(settings)
 
     nvim_lsp[v].setup(params)
   end
-
-  -- php setup --
-  vim.api.nvim_create_augroup('Enter PHP', {clear = true})
-  vim.api.nvim_create_autocmd('BufEnter', {
-    pattern = '*.php',
-    command = 'setlocal tw=4 sw=4',
-    group = 'Enter PHP'
-  })
 end
 
 setup({
