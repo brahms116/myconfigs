@@ -58,6 +58,8 @@ local function setup(settings)
   vim.keymap.set('n', '<C-j>', '10j', setKeymapOpts)
   vim.keymap.set('n', '<C-k>', '10k', setKeymapOpts)
   vim.keymap.set('n', '<C-p>', ':ls<CR>:b<Space>', setKeymapOpts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
   -- Global quickfix keymaps --
 
