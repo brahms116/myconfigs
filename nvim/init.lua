@@ -208,6 +208,8 @@ local function setup(settings)
 
   -- fzf --
   vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
+  vim.keymap.set('n', '<C-f>', ':Rg <CR> ', setKeymapOpts)
+  vim.keymap.set('n', '<C-b>', ':Buffers <CR>', setKeymapOpts)
 
   -- treesitter --
   if settings.plugins.treesitter then
