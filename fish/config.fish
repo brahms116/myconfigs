@@ -9,6 +9,8 @@ set -gx PATH "$PATH:$ANDROID_HOME/emulator"
 set -gx PATH "$PATH:$ANDROID_HOME/platform-tools"
 set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
 
+set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden -g "!{*/node_modules/*,.git/*,*/dist/*}"'
+
 set -gx API_ENDPOINT "https://aqo9tu62bl.execute-api.ap-southeast-2.amazonaws.com/PROD"
 set -gx ENVIRONMENT "DEV"
 
@@ -20,6 +22,10 @@ set -gx PATH "/usr/local/opt/mongodb-community@4.4/bin:$PATH"
 
 if test -e ~/.asdf/asdf.fish
   source ~/.asdf/asdf.fish
+end
+
+if test -e /opt/homebrew/opt/asdf/libexec/asdf.fish
+  source /opt/homebrew/opt/asdf/libexec/asdf.fish
 end
 
 if test -e ~/.secrets.fish
@@ -45,3 +51,8 @@ if status is-interactive
     alias ec2='aws ec2 describe-instances --query "Reservations[].Instances[].[Tags[?Key==`Name`]|[0].Value,PublicIpAddress,State.Name]" --output table'
 end
 
+
+# pnpm
+set -gx PNPM_HOME "/Users/davidkwong/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
