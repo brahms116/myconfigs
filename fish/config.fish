@@ -40,6 +40,9 @@ if test -e ~/.alias.fish
   source ~/.alias.fish
 end
 
+if test -e ~/.setup.fish
+  source ~/.setup.fish
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -50,9 +53,3 @@ if status is-interactive
     alias vi=nvim
     alias ec2='aws ec2 describe-instances --query "Reservations[].Instances[].[Tags[?Key==`Name`]|[0].Value,PublicIpAddress,State.Name]" --output table'
 end
-
-
-# pnpm
-set -gx PNPM_HOME "/Users/davidkwong/Library/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
