@@ -142,6 +142,8 @@ local function setup(settings)
       use 'junegunn/fzf.vim'
     end
 
+    use 'tpope/vim-fugitive'
+
     use 'prettier/vim-prettier'
   end
   packer.startup(packerStartup)
