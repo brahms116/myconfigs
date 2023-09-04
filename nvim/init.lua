@@ -219,7 +219,7 @@ local function setup(settings)
   -- treesitter --
   if settings.plugins.treesitter then
     require('nvim-treesitter.configs').setup({
-      ensure_installed = { "lua", "terraform", "rust", "json", "html", "css", "typescript", "vim" },
+      ensure_installed = { "lua", "terraform", "rust", "json", "html", "css", "typescript", "vim", "javascript" },
       indent = {
         enable = true
       },
