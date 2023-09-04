@@ -60,6 +60,7 @@ local function setup(settings)
   vim.keymap.set('n', '<C-p>', ':ls<CR>:b<Space>', setKeymapOpts)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+  vim.keymap.set('n', 'cp', ':let @+=expand("%:p")<CR>', setKeymapOpts)
 
   -- Global quickfix keymaps --
 
