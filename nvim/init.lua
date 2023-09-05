@@ -144,8 +144,10 @@ local function setup(settings)
     end
 
     use 'tpope/vim-fugitive'
-
     use 'prettier/vim-prettier'
+
+    use "sindrets/diffview.nvim" 
+
   end
   packer.startup(packerStartup)
 
