@@ -52,4 +52,5 @@ if status is-interactive
     alias cl=clear
     alias vi=nvim
     alias ec2='aws ec2 describe-instances --query "Reservations[].Instances[].[Tags[?Key==`Name`]|[0].Value,PublicIpAddress,State.Name]" --output table'
+    alias config='cd ~/dotfiles'
 end
