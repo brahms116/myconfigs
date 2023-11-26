@@ -255,6 +255,7 @@ local function setup(settings)
     'hls',
     'eslint',
     'terraformls',
+    'elmls',
     'lua_ls',
     'taplo',
     'intelephense',
