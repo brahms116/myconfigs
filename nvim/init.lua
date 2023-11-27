@@ -63,7 +63,7 @@ local function setup(settings)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
   vim.keymap.set('n', 'cp', ':let @+=expand("%:p")<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<F3>', ':set invwrap', setKeymapOpts)
+  vim.keymap.set('n', '<F3>', ':set invwrap<CR>', setKeymapOpts)
 
   -- Global quickfix keymaps --
 
