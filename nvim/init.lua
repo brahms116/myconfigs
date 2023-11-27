@@ -63,6 +63,7 @@ local function setup(settings)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
   vim.keymap.set('n', 'cp', ':let @+=expand("%:p")<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<F3>', ':set invwrap', setKeymapOpts)
 
   -- Global quickfix keymaps --
 
@@ -74,7 +75,7 @@ local function setup(settings)
       vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":cclose<CR>", true, true, true))
     else
       is_quick_fix_open = true
-      vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":copen<CR>", true, true, true))
+      vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":vert copen | vertical resize 80 <CR>", true, true, true))
     end
   end
 
