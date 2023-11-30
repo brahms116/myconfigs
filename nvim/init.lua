@@ -40,7 +40,7 @@ local function setup(settings)
 
 
   -- rg?? --
-  vim.opt.grepprg = "rg --follow --vimgrep --smart-case --no-heading"
+  vim.opt.grepprg = "rg --follow --hidden --vimgrep --smart-case --no-heading"
 
   -- Global key maps --
   local setKeymapOpts = {
