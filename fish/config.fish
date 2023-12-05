@@ -9,7 +9,7 @@ set -gx PATH "$PATH:$ANDROID_HOME/emulator"
 set -gx PATH "$PATH:$ANDROID_HOME/platform-tools"
 set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
 
-set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden -g "!{*/node_modules/*,.git/*,*/dist/*}"'
+set -gx FZF_DEFAULT_COMMAND 'rg --no-ignore --files --follow --hidden -g "!{*/node_modules/*,.git/*,*/dist/*,*/target/*}"'
 
 set -gx API_ENDPOINT "https://aqo9tu62bl.execute-api.ap-southeast-2.amazonaws.com/PROD"
 set -gx ENVIRONMENT "DEV"
