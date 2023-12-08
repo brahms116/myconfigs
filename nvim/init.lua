@@ -267,16 +267,25 @@ local function setup(settings)
   }
 
 
-  local on_attach = function(client, bufnr)
+  local on_attach = function(_, bufnr)
+
+    -- Custom goto def with marker helper func
+    local function goto_def()
+      -- set the marker D
+      vim.cmd('normal! mD')
+      vim.lsp.buf.definition()
+    end
+
+
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', '<leader>d', goto_def, bufopts)
     vim.keymap.set('n', '<C-h>', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<leader>i', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, bufopts)
     vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
