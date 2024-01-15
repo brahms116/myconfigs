@@ -53,8 +53,6 @@ local function setup(settings)
   vim.keymap.set('n', '<leader>j', ':bp<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>k', ':bn<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>q', ':bd<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>l', '<C-w>l<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>h', '<C-w>h<CR>', setKeymapOpts)
   vim.keymap.set('n', '<C-j>', '20j', setKeymapOpts)
   vim.keymap.set('n', '<C-k>', '20k', setKeymapOpts)
   vim.keymap.set('v', '<C-j>', '20j', setKeymapOpts)
@@ -146,9 +144,8 @@ local function setup(settings)
       use 'junegunn/fzf.vim'
     end
 
-    use 'tpope/vim-fugitive'
     use 'prettier/vim-prettier'
-
+    use 'tpope/vim-fugitive'
     use "sindrets/diffview.nvim"
   end
   packer.startup(packerStartup)
@@ -217,8 +214,8 @@ local function setup(settings)
 
   -- fzf --
   vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
-  -- vim.keymap.set('n', '<C-f>', ':Rg <CR> ', setKeymapOpts)
-  vim.keymap.set('n', '<C-b>', ':Buffers <CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>h', ':History<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>m', ':Marks<CR>', setKeymapOpts)
 
   -- treesitter --
   if settings.plugins.treesitter then
