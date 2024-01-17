@@ -165,10 +165,10 @@ local function setup(settings)
   -- vim.cmd("let g:gruvbox_material_background = 'dark'")
   -- vim.cmd("colorscheme gruvbox-material")
 
-  -- vim.cmd("hi! normal guibg=000000")
-  -- vim.cmd("hi! nontext guibg=000000")
-  -- vim.cmd("hi! endofbuffer guibg=000000")
-  -- vim.cmd("hi! normalnc guibg=000000")
+  vim.cmd("hi! normal guibg=000000")
+  vim.cmd("hi! nontext guibg=000000")
+  vim.cmd("hi! endofbuffer guibg=000000")
+  vim.cmd("hi! normalnc guibg=000000")
 
   -- clear signs --
   vim.cmd("set signcolumn=no")
