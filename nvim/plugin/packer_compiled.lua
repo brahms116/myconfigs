@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -175,6 +180,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-prettier"] = {
     loaded = true,

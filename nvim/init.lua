@@ -122,6 +122,7 @@ local function setup(settings)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
+    use { "ellisonleao/gruvbox.nvim" }
 
     -- Treesitter --
     if settings.plugins.treesitter then
@@ -157,18 +158,27 @@ local function setup(settings)
 
   -- Color Scheme
   vim.opt.termguicolors = true
-  vim.cmd("let g:gruvbox_material_background = 'soft'")
-  vim.cmd("colorscheme gruvbox-material")
-  vim.cmd("hi! normal guibg=000000")
-  vim.cmd("hi! nontext guibg=000000")
-  vim.cmd("hi! endofbuffer guibg=000000")
-  vim.cmd("hi! normalnc guibg=000000")
+
+  vim.o.background = "dark"
+  vim.cmd("colorscheme gruvbox")
+
+  -- vim.cmd("let g:gruvbox_material_background = 'dark'")
+  -- vim.cmd("colorscheme gruvbox-material")
+
+  -- vim.cmd("hi! normal guibg=000000")
+  -- vim.cmd("hi! nontext guibg=000000")
+  -- vim.cmd("hi! endofbuffer guibg=000000")
+  -- vim.cmd("hi! normalnc guibg=000000")
+
+  -- clear signs --
+  vim.cmd("set signcolumn=no")
+
 
   -- status line
   local luaLine = require('lualine')
   luaLine.setup({
     options = {
-      theme = 'gruvbox-material'
+      theme = 'gruvbox_dark'
     }
   })
 
@@ -265,7 +275,6 @@ local function setup(settings)
 
 
   local on_attach = function(_, bufnr)
-
     -- Custom goto def with marker helper func
     local function goto_def()
       -- set the marker D
