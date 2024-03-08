@@ -105,6 +105,7 @@ local function setup(settings)
     use "wbthomason/packer.nvim"
     use 'tpope/vim-commentary'
     use 'sainnhe/gruvbox-material'
+    use { "ellisonleao/gruvbox.nvim" }
     use 'sainnhe/everforest'
     use {
       'nvim-lualine/lualine.nvim',
@@ -122,7 +123,6 @@ local function setup(settings)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
-    use { "ellisonleao/gruvbox.nvim" }
 
     -- Treesitter --
     if settings.plugins.treesitter then
@@ -159,16 +159,13 @@ local function setup(settings)
   -- Color Scheme
   vim.opt.termguicolors = true
 
-  vim.o.background = "dark"
+  vim.o.background = "light"
   vim.cmd("colorscheme gruvbox")
 
-  -- vim.cmd("let g:gruvbox_material_background = 'dark'")
-  -- vim.cmd("colorscheme gruvbox-material")
-
-  vim.cmd("hi! normal guibg=000000")
-  vim.cmd("hi! nontext guibg=000000")
-  vim.cmd("hi! endofbuffer guibg=000000")
-  vim.cmd("hi! normalnc guibg=000000")
+  -- vim.cmd("hi! normal guibg=000000")
+  -- vim.cmd("hi! nontext guibg=000000")
+  -- vim.cmd("hi! endofbuffer guibg=000000")
+  -- vim.cmd("hi! normalnc guibg=000000")
 
   -- clear signs --
   vim.cmd("set signcolumn=no")
@@ -178,7 +175,7 @@ local function setup(settings)
   local luaLine = require('lualine')
   luaLine.setup({
     options = {
-      theme = 'gruvbox_dark'
+      theme = 'gruvbox_light'
     }
   })
 
