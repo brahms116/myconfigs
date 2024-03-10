@@ -29,6 +29,7 @@ local function setup(settings)
   vim.opt.incsearch = true
   vim.opt.hlsearch = true
   vim.opt.scrolloff = 4
+  vim.opt.wrap = false
 
   vim.cmd('set noswapfile')
   vim.cmd('set clipboard+=unnamedplus')
@@ -79,7 +80,7 @@ local function setup(settings)
 
   vim.keymap.set('n', '<leader>n', ':cn<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>p', ':cp<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<C-f>', ':grep ', setKeymapOpts)
+  vim.keymap.set('n', '<C-f>', ':grep --fixed-strings "', setKeymapOpts)
   vim.keymap.set('n', '<leader>w', ':w<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>o', ':lua Handle_o()<CR>', setKeymapOpts)
 
