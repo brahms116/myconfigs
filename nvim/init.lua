@@ -48,23 +48,28 @@ local function setup(settings)
     noremap = true,
     silent = true,
   }
+
   vim.keymap.set('i', 'jj', '<ESC>', setKeymapOpts)
   vim.keymap.set('i', '<ESC>', '<NOP>', setKeymapOpts)
   vim.keymap.set('n', '<leader>v', ':vs<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>j', ':bp<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>k', ':bn<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>q', ':bd<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<C-j>', '20j', setKeymapOpts)
-  vim.keymap.set('n', '<C-k>', '20k', setKeymapOpts)
-  vim.keymap.set('v', '<C-j>', '20j', setKeymapOpts)
-  vim.keymap.set('v', '<C-k>', '20k', setKeymapOpts)
   vim.keymap.set('n', '<C-p>', ':ls<CR>:b<Space>', setKeymapOpts)
+  vim.keymap.set('n', '<C-e>', '5<C-e>', setKeymapOpts)
+  vim.keymap.set('n', '<C-y>', '5<C-y>', setKeymapOpts)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
   vim.keymap.set('n', 'cp', ':let @+=expand("%:p")<CR>', setKeymapOpts)
   vim.keymap.set('n', '<F3>', ':set invwrap<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<C-r>', ':%s/', setKeymapOpts)
+  vim.keymap.set('n', '<leader>n', ':cn<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>p', ':cp<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<C-f>', ':grep --fixed-strings "', setKeymapOpts)
+  vim.keymap.set('n', '<leader>w', ':w<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>W', ':wall<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>q', ':bd<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>Q', ':qall<CR>', setKeymapOpts)
 
   -- Global quickfix keymaps --
+  vim.keymap.set('n', '<leader>o', ':lua Handle_o()<CR>', setKeymapOpts)
 
   local is_quick_fix_open = false
   --- Toggles the quickfix window
@@ -77,12 +82,6 @@ local function setup(settings)
       vim.fn.feedkeys(vim.api.nvim_replace_termcodes(":vert copen | vertical resize 80 <CR>", true, true, true))
     end
   end
-
-  vim.keymap.set('n', '<leader>n', ':cn<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>p', ':cp<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<C-f>', ':grep --fixed-strings "', setKeymapOpts)
-  vim.keymap.set('n', '<leader>w', ':w<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>o', ':lua Handle_o()<CR>', setKeymapOpts)
 
   -- php setup --
   vim.api.nvim_create_augroup('Enter PHP', { clear = true })
@@ -222,8 +221,7 @@ local function setup(settings)
 
   -- fzf --
   vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>h', ':History<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>m', ':Marks<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>j', ':RG <CR>', setKeymapOpts)
 
   -- treesitter --
   if settings.plugins.treesitter then
@@ -342,6 +340,6 @@ setup({
     lsp = true,
     treesitter = true,
     copilot = true,
-    fzf = true,
+     fzf = true,
   },
 })
