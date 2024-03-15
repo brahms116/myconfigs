@@ -62,7 +62,7 @@ local function setup(settings)
   vim.keymap.set('n', '<C-r>', ':%s/', setKeymapOpts)
   vim.keymap.set('n', '<leader>n', ':cn<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>p', ':cp<CR>', setKeymapOpts)
-  vim.keymap.set('n', '<C-f>', ':grep --fixed-strings "', setKeymapOpts)
+  vim.keymap.set('n', '<C-f>', ':grep -F "', setKeymapOpts)
   vim.keymap.set('n', '<leader>w', ':w<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>W', ':wall<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>q', ':bd<CR>', setKeymapOpts)
@@ -148,6 +148,7 @@ local function setup(settings)
     use 'prettier/vim-prettier'
     use 'tpope/vim-fugitive'
     use "sindrets/diffview.nvim"
+    use 'ggandor/leap.nvim'
   end
   packer.startup(packerStartup)
 
@@ -221,7 +222,10 @@ local function setup(settings)
 
   -- fzf --
   vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>j', ':RG <CR>', setKeymapOpts)
+  vim.keymap.set('n', '<leader>j', ':Rg <CR>', setKeymapOpts)
+
+  -- leap --
+  require('leap').create_default_mappings()
 
   -- treesitter --
   if settings.plugins.treesitter then
