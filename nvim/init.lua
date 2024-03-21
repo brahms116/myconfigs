@@ -4,7 +4,6 @@
 
 --- @class PluginSettings
 --- @field lsp boolean
---- @field treesitter boolean
 --- @field copilot boolean
 --- @field fzf boolean
 
@@ -124,11 +123,6 @@ local function setup(settings)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
 
-    -- Treesitter --
-    if settings.plugins.treesitter then
-      use 'nvim-treesitter/nvim-treesitter'
-    end
-
     -- LSP --
     if settings.plugins.lsp then
       use 'neovim/nvim-lspconfig'
@@ -227,27 +221,6 @@ local function setup(settings)
   -- leap --
   require('leap').create_default_mappings()
 
-  -- treesitter --
-  if settings.plugins.treesitter then
-    require('nvim-treesitter.configs').setup({
-      ensure_installed = { "lua", "terraform", "rust", "json", "html", "css", "typescript", "vim", "javascript" },
-      indent = {
-        enable = true
-      },
-      highlight = {
-        enable = true,
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-          },
-        },
-      },
-    })
-  end
 
   if not settings.plugins.lsp then
     return
@@ -342,7 +315,6 @@ end
 setup({
   plugins = {
     lsp = true,
-    treesitter = true,
     copilot = true,
      fzf = true,
   },

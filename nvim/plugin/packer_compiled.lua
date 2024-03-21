@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["leap.nvim"] = {
+    loaded = true,
+    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -153,11 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/nvim-snippy",
     url = "https://github.com/dcampos/nvim-snippy"
-  },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/Users/davidkwong/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = false,
