@@ -56,3 +56,6 @@ if status is-interactive
     alias mx='tmuxinator'
     alias x='tmux'
 end
+
+# opam configuration
+source /Users/davidkwong/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
