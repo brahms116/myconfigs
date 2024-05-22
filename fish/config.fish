@@ -9,6 +9,10 @@ set -gx PATH "$PATH:$ANDROID_HOME/emulator"
 set -gx PATH "$PATH:$ANDROID_HOME/platform-tools"
 set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
 
+set -gx fish_key_bindings fish_vi_key_bindings
+
+bind --mode insert jj 'set fish_bind_mode default; commandline -f backward-char repaint-mode;'
+
 set -gx FZF_DEFAULT_COMMAND 'rg --no-ignore --files --follow --hidden -g "!{**/node_modules/**,.git/*,**/dist/**,**/target/**}"'
 
 set -gx API_ENDPOINT "https://aqo9tu62bl.execute-api.ap-southeast-2.amazonaws.com/PROD"
@@ -46,16 +50,17 @@ end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    alias lss="exa -al --no-permissions"
-    alias lsr="exa -al --tree -R --level=2 --no-permissions"
     alias lg=lazygit
     alias cl=clear
     alias vi=nvim
-    alias ec2='aws ec2 describe-instances --query "Reservations[].Instances[].[Tags[?Key==`Name`]|[0].Value,PublicIpAddress,State.Name]" --output table'
-    alias config='cd ~/dotfiles'
     alias mx='tmuxinator'
     alias x='tmux'
+    alias repl='cd ~/dev/scripts-hs && stack repl ./main.hs'
+    alias k='kubectl'
+    alias dockerLogin='echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 end
 
 # opam configuration
 source /Users/davidkwong/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+set PATH $PATH /Users/davidkwong/.local/bin
