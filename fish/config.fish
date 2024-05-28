@@ -50,15 +50,14 @@ end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    alias lss="exa -al --no-permissions"
-    alias lsr="exa -al --tree -R --level=2 --no-permissions"
     alias lg=lazygit
     alias cl=clear
     alias vi=nvim
-    alias ec2='aws ec2 describe-instances --query "Reservations[].Instances[].[Tags[?Key==`Name`]|[0].Value,PublicIpAddress,State.Name]" --output table'
-    alias config='cd ~/dotfiles'
     alias mx='tmuxinator'
     alias x='tmux'
+    alias repl='cd ~/dev/scripts-hs && stack repl ./main.hs'
+    alias k='kubectl'
+    alias dockerLogin='echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 end
 
 # opam configuration
