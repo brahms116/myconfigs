@@ -2,6 +2,11 @@
 
 ## Required software
 
+### Terminal Emulator
+
+- [Alacritty](https://linux.how2shout.com/how-to-install-alacritty-terminal-on-ubuntu-22-04-lts/)
+- [Iterm2](https://iterm2.com)
+
 ### Terminal Related
 
 - Git
