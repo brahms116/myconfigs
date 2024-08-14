@@ -23,7 +23,9 @@
 
 ### Language tooling and LSPs
 
-TODO.
+- [Clangd](https://clangd.llvm.org/installation.html)
+
+Todo.
 
 ## Setting up softlinks
 
