@@ -1,6 +1,6 @@
-# Setup for my dev stuff
+# Development setup
 
-### Required software
+## Required software
 
 - Git
 - Fish
@@ -8,6 +8,7 @@
 - Packer.nvim
 - Tmux
 - Rg
+- Fzf
 - LazyGit
 
 ## Setting up softlinks
