@@ -59,9 +59,3 @@ if status is-interactive
     alias k='kubectl'
     alias dockerLogin='echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 end
-
-# opam configuration
-source /Users/davidkwong/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
-
-# Created by `pipx` on 2024-04-29 01:25:25
-set PATH $PATH /Users/davidkwong/.local/bin
