@@ -27,6 +27,7 @@ ln -s ~/dotfiles/nvim ~/.config/nvim
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/fish ~/.config/fish
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/alacritty.toml ~/.alacritty.toml
 ```
 
 ## Future plans
