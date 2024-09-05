@@ -38,7 +38,6 @@ local function setup(settings)
   vim.cmd('let g:netrw_liststyle = 4')
   vim.cmd('let g:netrw_localcopydircmd = "cp -r" ')
 
-
   -- rg?? --
   vim.opt.grepprg = "rg --follow --hidden --vimgrep --smart-case --no-heading"
 
@@ -139,8 +138,6 @@ local function setup(settings)
 
     use 'prettier/vim-prettier'
     use 'tpope/vim-fugitive'
-    use "sindrets/diffview.nvim"
-    use 'ggandor/leap.nvim'
   end
   packer.startup(packerStartup)
 
@@ -154,11 +151,6 @@ local function setup(settings)
 
   vim.o.background = "light"
   vim.cmd("colorscheme gruvbox")
-
-  -- vim.cmd("hi! normal guibg=000000")
-  -- vim.cmd("hi! nontext guibg=000000")
-  -- vim.cmd("hi! endofbuffer guibg=000000")
-  -- vim.cmd("hi! normalnc guibg=000000")
 
   -- clear signs --
   vim.cmd("set signcolumn=no")
@@ -177,7 +169,7 @@ local function setup(settings)
   snippy.setup({
     mappings = {
       is = {
-        ['<Tab>'] = 'expand_or_advance',
+        ['<leader><Tab>'] = 'expand_or_advance',
         ['<S-Tab>'] = 'previous',
       },
       nx = {
@@ -215,9 +207,6 @@ local function setup(settings)
   -- fzf --
   vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>j', ':Rg <CR>', setKeymapOpts)
-
-  -- leap --
-  require('leap').create_default_mappings()
 
 
   if not settings.plugins.lsp then
