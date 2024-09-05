@@ -38,7 +38,7 @@ local function setup(settings)
   vim.cmd('let g:netrw_liststyle = 4')
   vim.cmd('let g:netrw_localcopydircmd = "cp -r" ')
 
-  -- rg?? --
+  -- Sets the :grep to use rg --
   vim.opt.grepprg = "rg --follow --hidden --vimgrep --smart-case --no-heading"
 
   -- Global key maps --
@@ -141,6 +141,27 @@ local function setup(settings)
   end
   packer.startup(packerStartup)
 
+  -- fzf --
+  if settings.plugins.fzf then
+    vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
+    vim.keymap.set('n', '<leader>j', ':Rg <CR>', setKeymapOpts)
+
+    local function rg_fzf(args)
+      local command = string.format("rg --column --line-number --no-heading --color=always --smart-case %s",
+        vim.fn.shellescape(args.args))
+      local options = '--delimiter : --nth 4..'
+      vim.fn['fzf#vim#grep'](command, 1, { options = options })
+    end
+
+    vim.api.nvim_create_user_command(
+      'Rg',
+      rg_fzf,
+      {
+        nargs = '*'
+      }
+    )
+  end
+
 
   -- Oil keymaps --
   vim.keymap.set('n', '-', require('oil').open, setKeymapOpts)
@@ -204,9 +225,6 @@ local function setup(settings)
     })
   })
 
-  -- fzf --
-  vim.keymap.set('n', '<C-p>', ':Files <CR>', setKeymapOpts)
-  vim.keymap.set('n', '<leader>j', ':Rg <CR>', setKeymapOpts)
 
 
   if not settings.plugins.lsp then
@@ -303,6 +321,6 @@ setup({
   plugins = {
     lsp = true,
     copilot = true,
-     fzf = true,
+    fzf = true,
   },
 })
