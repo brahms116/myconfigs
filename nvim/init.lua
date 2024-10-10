@@ -27,7 +27,7 @@ local function setup(settings)
   vim.opt.smartcase = true
   vim.opt.incsearch = true
   vim.opt.hlsearch = true
-  vim.opt.scrolloff = 4
+  vim.opt.scrolloff = 999
   vim.opt.wrap = false
 
   vim.cmd('set noswapfile')
