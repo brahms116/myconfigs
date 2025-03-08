@@ -37,6 +37,7 @@ local function setup(settings)
   vim.cmd('let g:netrw_winsize = 20')
   vim.cmd('let g:netrw_liststyle = 4')
   vim.cmd('let g:netrw_localcopydircmd = "cp -r" ')
+  vim.cmd('let g:c_syntax_for_h = 1')
 
   -- Sets the :grep to use rg --
   vim.opt.grepprg = "rg --follow --hidden --vimgrep --smart-case --no-heading"
@@ -248,7 +249,8 @@ local function setup(settings)
     'clangd',
     'jsonls',
     'cssls',
-    'html'
+    'html',
+    'csharp_ls',
   }
 
 

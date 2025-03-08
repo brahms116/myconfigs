@@ -9,6 +9,8 @@ set -gx PATH "$PATH:$ANDROID_HOME/emulator"
 set -gx PATH "$PATH:$ANDROID_HOME/platform-tools"
 set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
 
+set -gx PATH "$PATH:$HOME/.dotnet/tools"
+
 set -gx fish_key_bindings fish_vi_key_bindings
 
 bind --mode insert jj 'set fish_bind_mode default; commandline -f backward-char repaint-mode;'
