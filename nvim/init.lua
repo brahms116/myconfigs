@@ -236,7 +236,7 @@ local function setup(settings)
 
   local nvim_lsp = require('lspconfig')
   local servers = {
-    'tsserver',
+    'ts_ls',
     'rust_analyzer',
     'gopls',
     'hls',
