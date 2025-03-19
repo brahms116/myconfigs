@@ -276,7 +276,7 @@ local function setup(settings)
     vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<leader>f',
-      '<cmd> lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end, timeout_ms=50000})<CR>',
+      '<cmd> lua vim.lsp.buf.format({filter = function(client) return client.name ~= "ts_ls" end, timeout_ms=50000})<CR>',
       bufopts)
   end
 
