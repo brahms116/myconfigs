@@ -341,11 +341,24 @@ local function setup(settings)
           lookahead = true,
 
           keymaps = {
-            ["aP"] = "@parameter.outer",
-            ["iP"] = "@parameter.inner",
-            -- You can use the capture groups defined in textobjects.scm
+            ["ls"] = "@assignment.lhs",
+            ["rs"] = "@assignment.rhs",
+
+            ["aa"] = "@assignment.outer",
+            ["ia"] = "@assignment.inner",
+
+            ["ap"] = "@parameter.outer",
+            ["ip"] = "@parameter.inner",
+
+            ["aC"] = "@call.outer",
+            ["iC"] = "@call.inner",
+
+            ["al"] = "@loop.outer",
+            ["il"] = "@loop.inner",
+
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
+
             ["ac"] = "@class.outer",
             -- You can optionally set descriptions to the mappings (used in the desc parameter of
             -- nvim_buf_set_keymap) which plugins like which-key display
