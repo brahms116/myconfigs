@@ -57,7 +57,6 @@ if status is-interactive
     alias vi=nvim
     alias mx='tmuxinator'
     alias x='tmux'
-    alias repl='cd ~/dev/scripts-hs && stack repl ./main.hs'
     alias k='kubectl'
     alias dockerLogin='echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 end
