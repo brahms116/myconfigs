@@ -61,3 +61,6 @@ if status is-interactive
     alias k='kubectl'
     alias dockerLogin='echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 end
+
+# Created by `pipx` on 2025-05-06 04:04:40
+set PATH $PATH /Users/davidkwong/.local/bin
