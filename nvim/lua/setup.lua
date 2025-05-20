@@ -357,10 +357,10 @@ function M.setup(settings)
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '<CR>',
-        node_incremental = '<CR>',
+        init_selection = 'gn',
+        node_incremental = 'gn',
         scope_incremental = '<TAB>',
-        node_decremental = '<S-TAB>',
+        node_decremental = 'gr',
       },
     },
   }
