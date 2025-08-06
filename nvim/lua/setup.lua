@@ -65,6 +65,8 @@ function M.setup(settings)
   vim.keymap.set('n', '<leader>W', ':wall<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>q', ':bd<CR>', setKeymapOpts)
   vim.keymap.set('n', '<leader>Q', ':qall<CR>', setKeymapOpts)
+  vim.keymap.set('n', '<C-d>', '10j', setKeymapOpts)
+  vim.keymap.set('n', '<C-u>', '10k', setKeymapOpts)
 
   -- Global quickfix keymaps --
   vim.keymap.set('n', '<leader>o', ':lua Handle_o()<CR>', setKeymapOpts)
